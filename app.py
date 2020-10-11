@@ -22,6 +22,11 @@ class IGBot:
         password.send_keys(self.password)
         password.send_keys(Keys.RETURN)
         time.sleep(3)
+        if len(bot.find_elements_by_id('slfErrorAlert')) > 0:
+            print("Wrong credentials. Try again.")
+            login(self)
+        else:
+            print("Correct credentials! If problems occur, check if Instagram's security protocol is preventing login.")
 
     def like_post(self, hashtag):
         bot = self.bot
